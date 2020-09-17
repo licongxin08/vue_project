@@ -4,7 +4,7 @@
       <div>
         <div class="left">
           <img src="../assets/heima.png" alt="">
-          电商后台管理系统
+          <span>电商后台管理系统</span>
         </div>
         <el-button type="info" @click="logout">退出</el-button>
       </div>
@@ -35,13 +35,13 @@ export default {
     return {
       menulist: [],
       icon: {
-        125: 'iconfont icon-user',
+        125: 'iconfont icon-users',
         103: 'iconfont icon-tijikongjian',
         101: 'iconfont icon-shangpin',
         102: 'iconfont icon-danju',
         145: 'iconfont icon-baobiao'
       },
-      // activePath: ''
+      activePath: '',
       isCollapse: false
     }
   },
@@ -61,7 +61,7 @@ export default {
     },
     async getMenulist () {
       const { data: res } = await this.$http('menus')
-      if (res.meta.status !== 200) return this.$message.error('获取数据失败，请稍后重试')
+      if (res.meta.status !== 200) return this.$message.error('获取数据失败!')
       // console.log(res)
       this.menulist = res.data
     },
@@ -85,6 +85,8 @@ export default {
       align-items: center;
     }
     .left {
+      display: flex;
+      align-items: center;
       font-size: 25px;
       color: #fff;
       img {
@@ -100,14 +102,19 @@ export default {
     }
     .toggle_btn {
       color: #fff;
-      background-color: #373d41;
+      background-color: #4a5064;
+      font-size: 14px;
+      line-height: 24px;
       text-align: center;
       cursor: pointer;
-      letter-spacing: 4px;
+      letter-spacing: .2em;
     }
     .el-menu {
       border-right: 0;
     }
   }
+}
+.el-main {
+  background-color: #eaedf1;
 }
 </style>

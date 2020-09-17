@@ -5,19 +5,13 @@
 </template>
 
 <script>
-export default {
-  name: 'app',
-  components: {
-  }
-}
+export default {}
 </script>
 
-<style lang='less' scope>
+<style>
   #app,body,html {
     margin: 0;
     padding: 0;
-    width: 100%;
     height: 100%;
-    // background-color: #2b4b6b;
   }
 </style>

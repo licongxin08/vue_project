@@ -2,7 +2,7 @@
   <div class="login">
     <div class="login_box">
       <div class="logo">
-        <img src="../assets/logo.png" alt="">
+        <img src="../assets/logo.jpg" alt="">
       </div>
       <!-- 表单 -->
       <el-form class="form" :model="formmsg" :rules="loginRules" ref="ruleForm">
@@ -12,7 +12,7 @@
         </el-form-item>
         <!-- 密码 -->
         <el-form-item prop="password">
-          <el-input prefix-icon="el-icon-lock" v-model="formmsg.password"></el-input>
+          <el-input type="password" prefix-icon="el-icon-lock" v-model="formmsg.password"></el-input>
         </el-form-item>
         <el-form-item class="btn">
           <el-button type="primary" @click="login">登录</el-button>
@@ -34,7 +34,7 @@ export default {
       // 数据的校验规则
       loginRules: {
         username: [
-          { required: true, message: '请输入活动名称', trigger: 'blur' },
+          { required: true, message: '请输入用户名', trigger: 'blur' },
           { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
         ],
         password: [
@@ -70,7 +70,6 @@ export default {
 
 <style lang='less' scope>
 .login {
-  width: 100%;
   height: 100%;
   background-color: #2b4b6b;
   .login_box {
@@ -95,10 +94,11 @@ export default {
       overflow: hidden;
       padding: 10px;
       box-shadow: 2px 3px 3px rgba(255, 255, 255, 0.6);
+      // background-color: darkorange;
       img {
         width: 100%;
         border-radius: 50%;
-        background-color: #ccc;
+        background-color: skyblue;
       }
     }
     .form {
