@@ -14,6 +14,12 @@ import './assets/css/global.css'
 
 import treeTable from 'vue-table-with-tree-grid'
 
+import VueQuillEditor from 'vue-quill-editor'
+
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
 Vue.component('tree-table', treeTable)
 // 配置基地址
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
@@ -27,6 +33,19 @@ axios.interceptors.request.use(function (config) {
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
+
+Vue.use(VueQuillEditor)
+// 定义处理时间的过滤器
+Vue.filter('dateFormate', function (param) {
+  const date = new Date(param)
+  const y = date.getFullYear()
+  const m = (date.getMonth() + 1).toString().padStart(2, '0')
+  const d = date.getDate().toString().padStart(2, '0')
+  const h = date.getHours().toString().padStart(2, '0')
+  const mm = date.getMinutes().toString().padStart(2, '0')
+  const ss = date.getSeconds().toString().padStart(2, '0')
+  return `${y}-${m}-${d} ${h}:${mm}:${ss}`
+})
 
 new Vue({
   router,

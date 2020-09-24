@@ -3,7 +3,14 @@
 }
 .el-table {
     margin: 15px 0;
+    font-size: 14px;
 }
 .el-cascader-menu {
     height: 240px;
+}
+.quill-editor {
+    height: 240px;
+}
+.ql-container{
+    height: 200px !important;
 }
