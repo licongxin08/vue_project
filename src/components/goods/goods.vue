@@ -24,7 +24,7 @@
         <el-table-column prop="goods_weight" label="商品重量" width="80"></el-table-column>
         <el-table-column label="创建时间">
           <template v-slot="scope">
-            {{scope.row.upd_time | dateFormate}}
+            {{scope.row.upd_time | dataFormate('YYYY-MM-DD HH:mm:ss')}}
           </template>
         </el-table-column>
         <el-table-column label="操作">

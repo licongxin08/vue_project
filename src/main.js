@@ -12,6 +12,8 @@ import './assets/fonts/iconfont.css'
 // 导入全局样式
 import './assets/css/global.css'
 
+import moment from 'moment'
+
 import treeTable from 'vue-table-with-tree-grid'
 
 import VueQuillEditor from 'vue-quill-editor'
@@ -36,17 +38,19 @@ Vue.config.productionTip = false
 
 Vue.use(VueQuillEditor)
 // 定义处理时间的过滤器
-Vue.filter('dateFormate', function (param) {
-  const date = new Date(param)
-  const y = date.getFullYear()
-  const m = (date.getMonth() + 1).toString().padStart(2, '0')
-  const d = date.getDate().toString().padStart(2, '0')
-  const h = date.getHours().toString().padStart(2, '0')
-  const mm = date.getMinutes().toString().padStart(2, '0')
-  const ss = date.getSeconds().toString().padStart(2, '0')
-  return `${y}-${m}-${d} ${h}:${mm}:${ss}`
+// Vue.filter('dateFormate', function (param) {
+//   const date = new Date(param)
+//   const y = date.getFullYear()
+//   const m = (date.getMonth() + 1).toString().padStart(2, '0')
+//   const d = date.getDate().toString().padStart(2, '0')
+//   const h = date.getHours().toString().padStart(2, '0')
+//   const mm = date.getMinutes().toString().padStart(2, '0')
+//   const ss = date.getSeconds().toString().padStart(2, '0')
+//   return `${y}-${m}-${d} ${h}:${mm}:${ss}`
+// })
+Vue.filter('dataFormate', function (param, type) {
+  return moment(param).format(type)
 })
-
 new Vue({
   router,
   render: h => h(App)
