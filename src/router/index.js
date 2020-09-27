@@ -2,30 +2,25 @@ import Vue from 'vue'
 
 import VueRouter from 'vue-router'
 
-import login from '../components/login.vue'
+// 导入登录组件
+const login = () => import(/* webpackChunkName: "login_home_welcome" */ '@/components/login.vue')
+const home = () => import(/* webpackChunkName: "login_home_welcome" */ '@/components/home.vue')
+const welcome = () => import(/* webpackChunkName: "login_home_welcome" */ '@/components/welcome.vue')
+// 这个 @ 符号，是 vue 给提供的一个路径简写方式，代表的是 src 目录
+// 注意：@ 后面有一个斜线的
+const users = () => import(/* webpackChunkName: "users" */ '@/components/users/users.vue')
 
-import home from '../components/home.vue'
+const rights = () => import(/* webpackChunkName: "rights_roles" */ '@/components/rights/rights.vue')
+const roles = () => import(/* webpackChunkName: "rights_roles" */ '@/components/rights/roles.vue')
 
-import welcome from '../components/welcome.vue'
+const categories = () => import(/* webpackChunkName: "goods" */ '@/components/goods/categories.vue')
+const params = () => import(/* webpackChunkName: "goods" */ '@/components/goods/params.vue')
+const goods = () => import(/* webpackChunkName: "goods" */ '@/components/goods/goods.vue')
+const add = () => import(/* webpackChunkName: "goods" */ '@/components/goods/add.vue')
 
-import users from '../components/users/users.vue'
+const orders = () => import(/* webpackChunkName: "order" */ '@/components/orders/orders.vue')
 
-import rights from '../components/rights/rights.vue'
-
-import roles from '../components/rights/roles.vue'
-
-import categories from '../components/goods/categories.vue'
-
-import params from '../components/goods/params.vue'
-
-import goods from '../components/goods/goods.vue'
-
-import add from '../components/goods/add.vue'
-
-import orders from '../components/orders/orders.vue'
-
-import reports from '../components/reports/reports.vue'
-
+const reports = () => import(/* webpackChunkName: "reports" */ '@/components/reports/reports.vue')
 Vue.use(VueRouter)
 
 const routes = [

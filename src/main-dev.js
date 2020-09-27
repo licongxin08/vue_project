@@ -22,15 +22,22 @@ import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 
+import nprogress from 'nprogress'
+import '../node_modules/nprogress/nprogress.css'
+
 Vue.component('tree-table', treeTable)
 // 配置基地址
-axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+axios.defaults.baseURL = 'http://118.190.160.53:8089/api/private/v1'
 // 请求拦截器 请求头挂载Authorization
 axios.interceptors.request.use(function (config) {
+  nprogress.start()
   config.headers.Authorization = sessionStorage.getItem('token')
   return config
 })
-
+axios.interceptors.response.use(function (config) {
+  nprogress.done()
+  return config
+})
 // 将axios当做一个属性挂载给Vue的函数的原型上
 Vue.prototype.$http = axios
 

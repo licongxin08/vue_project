@@ -20,8 +20,8 @@
           <el-tag type="warning" v-else>三级</el-tag>
         </template>
         <template slot="deleted" scope="scoped">
-          <i class="el-icon-success" v-if="scoped.row.cat_deleted==false"></i>
-          <i class="el-icon-error" v-else></i>
+          <i class="el-icon-success success_icon" v-if="scoped.row.cat_deleted==false"></i>
+          <i class="el-icon-error error_icon" v-else></i>
         </template>
         <template slot="pid" scope="scoped">
           <el-button type="primary" icon="el-icon-edit" size="mini" @click="editCate(scoped.row.id)">修改</el-button>
@@ -172,11 +172,11 @@ export default {
 }
 </script>
 
-<style>
-.el-icon-success {
+<style scoped>
+.success_icon {
   color: #90ee90
 }
-.el-icon-error {
+.error_icon {
   color:#e92322
 }
 .treeTable {
